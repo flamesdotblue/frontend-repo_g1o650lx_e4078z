@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "FocusTube — YouTube Distraction Blocker",
+  "version": "1.0.0",
+  "description": "Stay focused on YouTube by hiding Shorts and recommendation distractions.",
+  "action": {
+    "default_title": "FocusTube",
+    "default_popup": "extension/popup.html"
+  },
+  "options_page": "extension/options.html",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://m.youtube.com/*",
+    "https://youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "extension/background.js"
+  },
+  "icons": {
+    "16": "extension/icons/icon16.png",
+    "32": "extension/icons/icon32.png",
+    "48": "extension/icons/icon48.png",
+    "128": "extension/icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": ["extension/content.js"],
+      "css": ["extension/styles.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

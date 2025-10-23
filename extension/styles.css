@@ -1,0 +1,23 @@
+/* Minimal styles to neutralize some distracting UI pieces via CSS where possible */
+/* Hide YouTube Shorts entry points */
+ytd-reel-shelf-renderer,
+ytd-rich-shelf-renderer[is-shorts],
+ytd-rich-section-renderer:has(ytd-reel-shelf-renderer),
+ytd-mini-guide-entry-renderer:has(a[title="Shorts"]),
+ytd-guide-entry-renderer:has(a[href*="shorts"]) {
+  display: none !important;
+}
+
+/* Hide endscreen suggestions and creator cards (fallback to JS too) */
+.ytp-endscreen-content,
+.ytp-ce-element {
+  display: none !important;
+}
+
+/* Hide watch page sidebar recommendations */
+#related,
+ytd-watch-next-secondary-results-renderer,
+#secondary #items ytd-compact-video-renderer,
+ytd-compact-autoplay-renderer {
+  display: none !important;
+}
